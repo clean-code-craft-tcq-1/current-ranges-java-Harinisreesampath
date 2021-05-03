@@ -22,10 +22,6 @@ public class BatteryCurrentReading {
 		 for (int i = 1; i < readings.size(); ++i) {
 		      if ((readings.get(i) - readings.get(i-1)) < 2) {		        
 		        ++count;
-		        if(minRange > readings.get(i))
-		        	minRange = readings.get(i);
-		        if(maxRange < readings.get(i))
-		        	maxRange = readings.get(i);
 		      }
 		      
 		      else {		   
@@ -34,7 +30,7 @@ public class BatteryCurrentReading {
 		        count = 1;  
         
 		      }
-
+		      maxRange = readings.get(i);
 		    }
 	    	currentValues.put(minRange+ "-"+maxRange, count);
 		return currentValues;
